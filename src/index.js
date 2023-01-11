@@ -52,7 +52,7 @@ app.get('/todos', checksExistsUserAccount, (request, response) => {
   return response.status(200).json({ todos: todos }).send();
 });
 
-app.post('/todoCreated', checksExistsUserAccount, (request, response) => {
+app.post('/todos', checksExistsUserAccount, (request, response) => {
   
   const { user } = request;
   const { title , deadline} = request.body
@@ -64,12 +64,15 @@ app.post('/todoCreated', checksExistsUserAccount, (request, response) => {
     createdAt: new Date(),
   }
 
+
   user.todo.push(todo)
   return response.status(200).json({ message: "Tarefa Cadastrada com sucesso!"}).send();
 });
 
 app.put('/todos/:id', checksExistsUserAccount, (request, response) => {
-  // Complete aqui
+  
+  
+  
 });
 
 app.patch('/todos/:id/done', checksExistsUserAccount, (request, response) => {
